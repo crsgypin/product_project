@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 set :stage, :production
 
-server '139.162.11.161', user: 'deploy', roles: %w{app db web}, my_property: :my_value
+server '139.162.11.161', user: 'gypin', roles: %w{app db web}, my_property: :my_value
 # server '139.162.11.161', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.139.162.11.161', user: 'deploy', roles: %w{db}
 
