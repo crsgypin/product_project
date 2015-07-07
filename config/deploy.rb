@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'product_project'
 set :repo_url, 'git@github.com:crsgypin/product_project.git'
-set :deploy_to, '/home/deploy'
+set :deploy_to, '~/deploy/product_project/'
 set :keep_releases, 5
 set :linked_files, fetch(:linked_files, []).push('config/database.yml' 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 
