@@ -27,7 +27,7 @@ production:
   host: localhost
   pool: 25
   username: postgres
-  password: your_database_password
+  password: linode
 
 
 
