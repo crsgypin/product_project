@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20150708110203) do
   create_table "garbages", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "type_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "garbage_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "garbages", ["type_id"], name: "index_garbages_on_type_id"
+  add_index "garbages", ["garbage_type_id"], name: "index_garbages_on_garbage_type_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
