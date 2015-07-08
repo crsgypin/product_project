@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
+  get 'garbages/index'
+
+  get 'garbages/show'
+
+  get 'garbages/create'
+
+  get 'garbages/edit'
+
+  get 'garbages/update'
+
+  get 'garbages/destroy'
+
   resources :products
+  resources :garbages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
