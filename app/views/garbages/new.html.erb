@@ -3,5 +3,6 @@
 <%= link_to "Back", garbages_path, :class=>"btn btn-primary"%>
 <%= form_for @garbage, :url=>garbages_path do |f| %>
 	<%= render :partial=>'form', :locals=>{:f=>f} %>
+	<%= f.submit "新增", :class=>"btn btn-info" %>
 <% end %>
 
