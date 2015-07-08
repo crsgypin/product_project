@@ -5,9 +5,12 @@ set :application, 'product_project'
 set :repo_url, 'git@github.com:crsgypin/product_project.git'
 set :deploy_to, '~/deploy/product_project/'
 set :keep_releases, 5
-set :linked_files, fetch(:linked_files, []).push('config/database.yml' 'config/secrets.yml')
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 
-'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/application.yml config/secrets.yml}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+ 
+
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -40,15 +43,13 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
 # set :keep_releases, 5
 
 namespace :deploy do
-
-	desc 'Restart application'
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-
+ 
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
 end
