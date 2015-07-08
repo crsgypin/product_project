@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:crsgypin/product_project.git'
 # Default branch is :master
 #ask :branch, proc{`git rev-parse --abbrev-ref HEAD`.chomp}.call
 
-set :deploy_to, 'home/deploy/product_project/'
+set :deploy_to, '/home/deploy/product_project/'
 
 set :keep_releases, 5
 

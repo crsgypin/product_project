@@ -35,6 +35,7 @@ gem 'capistrano-rails', :group => :development
 gem 'capistrano-passenger', :group => :development
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rbenv', github: "capistrano/rbenv"
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
