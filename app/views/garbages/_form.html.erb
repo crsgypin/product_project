@@ -1,0 +1,13 @@
+<%# locals=>{:f=>f} %>
+
+<table class="table">
+	<tr>
+		<td><%= f.label :name, "name" %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :description, "description" %></td>
+		<td><%= f.text_area :description %></td>
+	</tr>
+	<%= f.submit %>
+</table>
