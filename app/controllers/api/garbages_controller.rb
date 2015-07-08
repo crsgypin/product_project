@@ -1,5 +1,6 @@
 class Api::GarbagesController < ApplicationController
   before_action :set_garbage, :only=>[:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :except => [:update, :create]
 
   def index
     @garbages = Garbage.all
