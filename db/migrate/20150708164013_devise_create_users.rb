@@ -18,6 +18,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      t.string   :name
+      t.string   :fb_uid
+      t.string   :fb_token
+      t.boolean  :consumer
+      t.boolean  :ninjia
+      t.boolean  :admin
 
       ## Confirmable
       # t.string   :confirmation_token
