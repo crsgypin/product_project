@@ -3,7 +3,8 @@ class GarbagesController < ApplicationController
 
   def index
     @garbages = Garbage.all
-
+    session[:garppon] = "garbage"
+    cookies[:barbbon] = "barbbon"
   end
 
   def show
@@ -11,6 +12,7 @@ class GarbagesController < ApplicationController
 
   def new
     @garbage = Garbage.new
+    Rails.logger.debug(cookies.inspect)
   end
 
   def create
