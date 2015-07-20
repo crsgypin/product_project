@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708165555) do
+ActiveRecord::Schema.define(version: 20150719235530) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "county_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20150708165555) do
     t.string   "latitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "fb_uid"
+    t.string   "category"
+    t.string   "range_time"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "url"
+    t.string   "fb_post_id"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "garbage_types", force: :cascade do |t|
@@ -59,6 +72,15 @@ ActiveRecord::Schema.define(version: 20150708165555) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "results", ["event_id"], name: "index_results_on_event_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
